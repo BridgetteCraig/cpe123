@@ -3,6 +3,8 @@ var xHead = 225;
 var yHead = 174;
 var rotHead = 0;
 
+var swim = false;
+
 // constants
 const Y_AXIS = 1;
 const X_AXIS = 2;
@@ -25,6 +27,50 @@ function draw() {
 
     // background gradient
     setGradient(0, 0, 400, 500, c1, c2, Y_AXIS);
+
+    // ladel handle
+    fill(100);
+    noStroke();
+
+    // bottom of handle
+    push();
+        fill(220);
+        translate(254, 200);
+        rotate(-6.02139);
+        rect(0, 0, 42, 97);
+    pop();
+
+    // small part of bottom of handle
+    push();
+        translate(254, 200);
+        rotate(-6.02139);
+        rect(0, 0, 37, 97);
+    pop();
+
+    // long part of handle
+    push();
+        fill(220);
+        translate(370, -26);
+        rotate(-5.81072468);
+        rect(0, 0, 42, 255);
+    pop();
+
+    // skinny long part of handle
+    push();
+        fill(120);
+        translate(370, -26);
+        rotate(-5.81072468);
+        rect(0, 0, 37, 255);
+    pop();
+
+    // small handle highlight
+    push();
+        fill(170);
+        translate(258, 192);
+        rotate(-5.81072468);
+        rect(0, 0, 39, 15);
+    pop();
+
 
     // ladel spoon
     fill(128, 75, 0);
@@ -49,7 +95,9 @@ function draw() {
     fill(44, 146, 134);
     ellipse(182, 333, 264, 143);
 
-    drawSwimmer(142, 300);
+    if (swim) {
+        drawSwimmer(142, 300);
+    }
 
 }
 
@@ -80,6 +128,7 @@ function drawSwimmer(x, y) {
     ellipse(17, 5, 7, 7);
     ellipse(13, 11, 6, 6);
     ellipse(28, 5, 19, 6);
+    ellipse(50, 44, 46, 20);
 
     // rotated face ellipses
     push();
@@ -167,6 +216,50 @@ function drawSwimmer(x, y) {
         rect(0, 0, 17, 2);
     pop();
 
+    // goggles
+    fill(0, 50, 200);
+
+    // bridge of goggles
+    push();
+        translate(19, 31);
+        rotate(-0.8761553);
+        ellipse(0, 0, 5, 5);
+    pop();
+
+    // cover goggles bridge
+    push();
+        fill(216, 188, 165);
+        translate(20, 32);
+        rotate(-0.8761553);
+        ellipse(0, 0, 5, 5);
+    pop();
+
+    // change back to blue fill for goggles
+    fill(0, 50, 200);
+
+    push();
+        translate(21, 26);
+        rotate(-0.8761553);
+        ellipse(0, 0, 8, 6);
+    pop();
+
+    push();
+        translate(14, 34);
+        rotate(-0.8761553);
+        ellipse(0, 0, 8, 6);
+    pop();
+
+    // wave
+    fill(44, 146, 134);
+
+    push();
+        translate(6, 37);
+        rotate(-6.19731511);
+        rect(0, 0, 83, 15);
+    pop();
+
+
+
 }
 
 function setGradient(x, y, w, h, c1, c2, axis) {
@@ -189,5 +282,11 @@ function setGradient(x, y, w, h, c1, c2, axis) {
         stroke(c);
         line(i, y, i, y + h);
     }
+  }
+}
+
+function mousePressed(){
+    if (mouseX > 180 && mouseY > 330 && mouseX < 465 && mouseY < 485) {
+    swim = true;
   }
 }
