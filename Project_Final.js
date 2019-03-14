@@ -54,6 +54,11 @@ var mugX = -40;
 var mugY = 140;
 var mugScale = .8;
 
+var dogColor = [];
+var dogCol1;
+var dogCol2;
+var dogCol3;
+
 click = false
 
 
@@ -69,14 +74,14 @@ function setup() {
 
 //Diamonds
 function diamonds(x, y, color)
-{	
+{
 	noStroke();
 	fill(color);
 	push();
 		translate(x, y);
 		rect(0, 0, 18, 18, 5);
 	pop();
-	
+
 }
 
 function drawdiamonds()
@@ -136,7 +141,7 @@ function star(x, y, color)
 function drawstars()
 {
 	star(55, 320, pink);
-	
+
 	push();
 		translate(330, 50);
 		scale(0.8);
@@ -226,14 +231,14 @@ function dog()
 		rotate(-13);
 		scale(0.9);
 		beginShape();
-		curveVertex(-25,-53); 
+		curveVertex(-25,-53);
 		curveVertex(50,-100);
-		curveVertex(45,0); 
-		curveVertex(25,30); 
-		curveVertex(-50,55); 
-		curveVertex(-75,51); 
+		curveVertex(45,0);
+		curveVertex(25,30);
+		curveVertex(-50,55);
+		curveVertex(-75,51);
 		curveVertex(-80, 0)
-		curveVertex(0, -96); 
+		curveVertex(0, -96);
 		curveVertex(30,-84);
 		endShape();
 	pop();
@@ -245,14 +250,14 @@ function dog()
 		rotate(13);
 		scale(0.9);
 		beginShape();
-		curveVertex(25,-53); 
+		curveVertex(25,-53);
 		curveVertex(-50,-100);
-		curveVertex(-45,0); 
-		curveVertex(-25,30); 
-		curveVertex(50,55); 
-		curveVertex(75,51); 
+		curveVertex(-45,0);
+		curveVertex(-25,30);
+		curveVertex(50,55);
+		curveVertex(75,51);
 		curveVertex(80, 0)
-		curveVertex(0, -96); 
+		curveVertex(0, -96);
 		curveVertex(-30,-84);
 		endShape();
 	pop();
@@ -265,14 +270,14 @@ function dog()
 		rotate(-13);
 		scale(0.75);
 		beginShape();
-		curveVertex(-16,-53); 
+		curveVertex(-16,-53);
 		curveVertex(56,-95);
-		curveVertex(70,-84); 
-		curveVertex(54,-6); 
-		curveVertex(6,57); 
-		curveVertex(-63,35); 
-		curveVertex(-16,-53); 
-		curveVertex(56,-95); 
+		curveVertex(70,-84);
+		curveVertex(54,-6);
+		curveVertex(6,57);
+		curveVertex(-63,35);
+		curveVertex(-16,-53);
+		curveVertex(56,-95);
 		curveVertex(70,-84);
 		endShape();
 	pop();
@@ -283,14 +288,14 @@ function dog()
 		rotate(13);
 		scale(0.75);
 		beginShape();
-		curveVertex(16,-53); 
+		curveVertex(16,-53);
 		curveVertex(-56,-95);
-		curveVertex(-70,-84); 
-		curveVertex(-54,-6); 
-		curveVertex(-6,57); 
-		curveVertex(63, 35); 
-		curveVertex(16,-53); 
-		curveVertex(-56,-95); 
+		curveVertex(-70,-84);
+		curveVertex(-54,-6);
+		curveVertex(-6,57);
+		curveVertex(63, 35);
+		curveVertex(16,-53);
+		curveVertex(-56,-95);
 		curveVertex(-70,-84);
 		endShape();
 	pop();
@@ -321,7 +326,7 @@ function dog()
 	fill(beige);
 	ellipse(656.5, 223, 27.5, 21.4);
 	ellipse(736.5, 223, 27.5, 21.4);
-	
+
 	pop();
 
 }
@@ -329,7 +334,7 @@ function dog()
 //HATS
 function cowboyHat()
 {
-	
+
 	push();
 	translate(CowboyHatx,CowboyHaty);
 	noStroke();
@@ -410,7 +415,7 @@ function beret()
 	pop();
 }
 
-function partyhat() 
+function partyhat()
 {
 	noStroke();
 	push();
@@ -765,14 +770,14 @@ function mouseClicked()
 	var allaccess = (knifebox || catbox || butterflybox || moneybox || pursebox || mugbox);
 
 	var allhats = (cowboybox || baseballbox || fedorabox || tophatbox || beretbox || partyhatbox);
-	
+
 	if (mouseX > 258 && mouseX < 651 && mouseY > 282 && mouseY < 427){
 		click = true
 	}
 if (okay){
 //Cowboy Hat
 	if (mouseX<150 && mouseX>50 && mouseY<130 && mouseY>50)
-	{	
+	{
 		CowboyHatx=638;
 		CowboyHaty=90;
 		CowboyHatScale=2;
@@ -855,7 +860,7 @@ if (okay){
 		background(backcolor);
 		beretX = 93;
 		beretY = 438;
-		beretScale = .6;		
+		beretScale = .6;
 	}
 
 //Party Hat
@@ -891,7 +896,7 @@ if (okay){
 		background(backcolor);
 		knifeX = 330;
 		knifeY = 105;
-		knifeScale = .18;		
+		knifeScale = .18;
 	}
 
 //Cat
@@ -1002,7 +1007,7 @@ function backredraw()
 
 	noStroke();
 	fill(darkpink); //Redraw Shadow
-	rect(258, 282, 383, 135, 35); 
+	rect(258, 282, 383, 135, 35);
 	fill(pink); //Redraw Button
 	rect(rectx, recty, 383, 135, 35);
 }
