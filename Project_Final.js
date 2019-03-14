@@ -54,10 +54,13 @@ var mugX = -40;
 var mugY = 140;
 var mugScale = .8;
 
+var i = 0;
 var dogColor = [];
 var dogCol1;
 var dogCol2;
 var dogCol3;
+var dogCol4;
+var numColors = 3;
 
 click = false
 
@@ -67,7 +70,16 @@ function setup() {
 	background(backcolor);
 	noStroke();
 	angleMode(DEGREES);
-	frameRate(1)
+	frameRate(1);
+
+	// colors for dog color array
+	dogCol1 = color(233, 196, 157); // beige
+	dogCol2 = color(147, 109, 73); // dark brown
+	dogCol3 = color(196, 154, 108); // light brown
+	dogCol4 = color(167, 169, 172); // gray
+
+	dogColor.push(dogCol1, dogCol2, dogCol3, dogCol4);
+
 }
 
 //HELPER FUNCTIONS - Screen 1
@@ -179,7 +191,7 @@ function dog()
 	push();
 	scale(0.9);
 	translate(75, 40);
-	fill(lightbrown);
+	fill(dogColor[i]);
 	noStroke();
 	ellipse(699, 429-5, 127, 69.5); //Lower Torso
 	beginShape(); //Upper Torso
@@ -225,7 +237,7 @@ function dog()
 	translate(0, 5)
 
 	//Left Side of Face
-	fill(lightbrown)
+	fill(dogColor[i])
 	push();
 		translate(640, 260);
 		rotate(-13);
@@ -244,7 +256,7 @@ function dog()
 	pop();
 
 	//Right Side of Face
-	fill(lightbrown)
+	fill(dogColor[i])
 	push();
 		translate(756, 260);
 		rotate(13);
@@ -987,6 +999,18 @@ if (okay){
 		mugX = -40;
 		mugY = 140;
 		mugScale = .8;
+	}
+
+// Dog color
+	if (mouseX>540 && mouseX<859 && mouseY>148 && mouseY<488)
+	{
+		if (i < numColors){
+			i++;
+		}
+
+		else{
+			i = 0;
+		}
 	}
 
 }
