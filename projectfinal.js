@@ -1,58 +1,63 @@
-var cyan = '#42B9E6'
-var orange = '#F1BA41'
-var pink = '#EE849B'
-var darkpink = '#e7547f'
-var purple = '#A67DB8'
-var teal = '#8ED0CF'
-var yellow = '#FFF56D'
-var darkbrown = '#5B3834'
-var beige = '#F5DDC7'
-var lightbrown = '#E9C49D'
-var backcolor = '#FEEED9'
-var rot = 210
-var rotAdd = 25
-var rot2 = 210
-var rotAdd2 = 25
-var rectx = 268
-var recty = 272
-var textx = 312
-var texty = 356
-var CowboyHatx=75;
-var CowboyHaty=85;
-var CowboyHatScale=.6;
-var baseballCapX = 190;
-var baseballCapY = 120;
-var baseballCapScale = .8;
-var fedoraX = 93;
-var fedoraY = 275;
-var fedoraScale = .58;
-var tophatX = 175;
-var tophatY = 248;
-var tophatScale = .6;
-var beretX = 93;
-var beretY = 438;
-var beretScale = .6;
-var partyhatX = -20;
-var partyhatY = 400;
-var partyhatScale = .3;
-var knifeX = 330;
-var knifeY = 105;
-var knifeScale = .18;
-var catX = 425;
-var catY = 95;
-var catScale = .4;
-var butterflyX = 332;
-var butterflyY = 275;
-var butterflyScale=1.5;
-var moneyX=405;
-var moneyY=252;
-var moneyScale=.8;
-var purseX=332;
-var purseY=426;
-var purseScale=.7;
-var mugX = -40;
-var mugY = 140;
-var mugScale = .8;
+//VARIABLES
+//Colors
+	var cyan = '#42B9E6'
+	var orange = '#F1BA41'
+	var pink = '#EE849B'
+	var darkpink = '#e7547f'
+	var purple = '#A67DB8'
+	var teal = '#8ED0CF'
+	var yellow = '#FFF56D'
+	var darkbrown = '#5B3834'
+	var beige = '#F5DDC7'
+	var lightbrown = '#E9C49D'
+	var backcolor = '#FEEED9'
+//Screen 1
+	var rot = 210
+	var rotAdd = 25
+	var rot2 = 210
+	var rotAdd2 = 25
+	var rectx = 268
+	var recty = 272
+	var textx = 312
+	var texty = 356
+//Hats
+	var CowboyHatx=75;
+	var CowboyHaty=85;
+	var CowboyHatScale=.6;
+	var baseballCapX = 190;
+	var baseballCapY = 120;
+	var baseballCapScale = .8;
+	var fedoraX = 93;
+	var fedoraY = 275;
+	var fedoraScale = .58;
+	var tophatX = 175;
+	var tophatY = 248;
+	var tophatScale = .6;
+	var beretX = 93;
+	var beretY = 438;
+	var beretScale = .6;
+	var partyhatX = -20;
+	var partyhatY = 400;
+	var partyhatScale = .3;
+//Accessories
+	var knifeX = 330;
+	var knifeY = 105;
+	var knifeScale = .18;
+	var catX = 425;
+	var catY = 95;
+	var catScale = .4;
+	var butterflyX = 332;
+	var butterflyY = 275;
+	var butterflyScale=1.5;
+	var moneyX=405;
+	var moneyY=252;
+	var moneyScale=.8;
+	var purseX=332;
+	var purseY=426;
+	var purseScale=.7;
+	var mugX = -40;
+	var mugY = 140;
+	var mugScale = .8;
 
 var i = 0;
 var dogColor = [];
@@ -61,16 +66,17 @@ var dogCol2;
 var dogCol3;
 var dogCol4;
 var numColors = 3;
+var armR;
 
 click = false
-
+press = false
 
 function setup() {
 	createCanvas(900, 559.58);
 	background(backcolor);
 	noStroke();
 	angleMode(DEGREES);
-	frameRate(1);
+	frameRate(1)
 
 	// colors for dog color array
 	dogCol1 = color(233, 196, 157); // beige
@@ -79,6 +85,7 @@ function setup() {
 	dogCol4 = color(167, 169, 172); // gray
 
 	dogColor.push(dogCol1, dogCol2, dogCol3, dogCol4);
+	armR = 50;
 
 }
 
@@ -86,14 +93,14 @@ function setup() {
 
 //Diamonds
 function diamonds(x, y, color)
-{
+{	
 	noStroke();
 	fill(color);
 	push();
 		translate(x, y);
 		rect(0, 0, 18, 18, 5);
 	pop();
-
+	
 }
 
 function drawdiamonds()
@@ -153,7 +160,7 @@ function star(x, y, color)
 function drawstars()
 {
 	star(55, 320, pink);
-
+	
 	push();
 		translate(330, 50);
 		scale(0.8);
@@ -214,11 +221,6 @@ function dog()
 	pop();
 	quad(622.5, 378, 640, 398, 635.5, 402, 610, 386);
 
-	push(); //Right Arm
-		translate(761, 391);
-		rotate(50);
-		ellipse(0, 0, 72.5, 35.5);
-	pop();
 
 	rect(635, 420-30, 40, 95, 17) //Left Leg
 	rect(723, 420-5, 40, 70, 17) //Right Leg
@@ -243,33 +245,32 @@ function dog()
 		rotate(-13);
 		scale(0.9);
 		beginShape();
-		curveVertex(-25,-53);
+		curveVertex(-25,-53); 
 		curveVertex(50,-100);
-		curveVertex(45,0);
-		curveVertex(25,30);
-		curveVertex(-50,55);
-		curveVertex(-75,51);
+		curveVertex(45,0); 
+		curveVertex(25,30); 
+		curveVertex(-50,55); 
+		curveVertex(-75,51); 
 		curveVertex(-80, 0)
-		curveVertex(0, -96);
+		curveVertex(0, -96); 
 		curveVertex(30,-84);
 		endShape();
 	pop();
 
 	//Right Side of Face
-	fill(dogColor[i])
 	push();
 		translate(756, 260);
 		rotate(13);
 		scale(0.9);
 		beginShape();
-		curveVertex(25,-53);
+		curveVertex(25,-53); 
 		curveVertex(-50,-100);
-		curveVertex(-45,0);
-		curveVertex(-25,30);
-		curveVertex(50,55);
-		curveVertex(75,51);
+		curveVertex(-45,0); 
+		curveVertex(-25,30); 
+		curveVertex(50,55); 
+		curveVertex(75,51); 
 		curveVertex(80, 0)
-		curveVertex(0, -96);
+		curveVertex(0, -96); 
 		curveVertex(-30,-84);
 		endShape();
 	pop();
@@ -282,14 +283,14 @@ function dog()
 		rotate(-13);
 		scale(0.75);
 		beginShape();
-		curveVertex(-16,-53);
+		curveVertex(-16,-53); 
 		curveVertex(56,-95);
-		curveVertex(70,-84);
-		curveVertex(54,-6);
-		curveVertex(6,57);
-		curveVertex(-63,35);
-		curveVertex(-16,-53);
-		curveVertex(56,-95);
+		curveVertex(70,-84); 
+		curveVertex(54,-6); 
+		curveVertex(6,57); 
+		curveVertex(-63,35); 
+		curveVertex(-16,-53); 
+		curveVertex(56,-95); 
 		curveVertex(70,-84);
 		endShape();
 	pop();
@@ -300,14 +301,14 @@ function dog()
 		rotate(13);
 		scale(0.75);
 		beginShape();
-		curveVertex(16,-53);
+		curveVertex(16,-53); 
 		curveVertex(-56,-95);
-		curveVertex(-70,-84);
-		curveVertex(-54,-6);
-		curveVertex(-6,57);
-		curveVertex(63, 35);
-		curveVertex(16,-53);
-		curveVertex(-56,-95);
+		curveVertex(-70,-84); 
+		curveVertex(-54,-6); 
+		curveVertex(-6,57); 
+		curveVertex(63, 35); 
+		curveVertex(16,-53); 
+		curveVertex(-56,-95); 
 		curveVertex(-70,-84);
 		endShape();
 	pop();
@@ -338,15 +339,25 @@ function dog()
 	fill(beige);
 	ellipse(656.5, 223, 27.5, 21.4);
 	ellipse(736.5, 223, 27.5, 21.4);
-
+	
 	pop();
 
+}
+
+function drawRight()
+{
+   push(); //Right Arm
+      translate(761, 391);
+      rotate(armR);
+      fill(dogColor[i]);
+      ellipse(0, 0, 72.5, 35.5);
+   pop();
 }
 
 //HATS
 function cowboyHat()
 {
-
+	
 	push();
 	translate(CowboyHatx,CowboyHaty);
 	noStroke();
@@ -427,7 +438,7 @@ function beret()
 	pop();
 }
 
-function partyhat()
+function partyhat() 
 {
 	noStroke();
 	push();
@@ -445,13 +456,13 @@ function partyhat()
 }
 
 //ACCESSORIES
-function knife()
-{
-	push();
-	translate(knifeX,knifeY);
-	rotate(45);
-		scale(knifeScale);
-		fill('#81B2A4');
+	
+	function knife() {
+		push();
+			translate(knifeX,knifeY);
+			rotate(45);
+			scale(knifeScale);
+			fill('#81B2A4');
 			noStroke(0);
 			triangle(-180,0,0,0,0,50);
 			quad (-50,0,15,0,15,15,-50,15);
@@ -464,144 +475,137 @@ function knife()
 			ellipse (120,15,5);
 			fill('#fff');
 			ellipse (170,10,5);
-	pop();
-}
-
-function cat()
-{
-	push();
-	translate(catX,catY);
-	scale(catScale);
-		//body&ears
-		fill('#5e5851');
-		noStroke();
-		ellipse(0,0,50);
-		triangle(-30,-35,-25,0,0,-10)
-		triangle(0,-10,25,0,30,-35);
-		triangle(0,-25,-40,100,40,100);
-		//eyes
-		fill('#ddbc75');
-		stroke(0);
-		ellipse(-10,-5,8);
-		ellipse(10,-5,8);
-		line(-10,-6,-10,-4);
-		line(10,-6,10,-4);
-		//nose
-		fill('#e2bcae');
-		noStroke();
-		triangle(-3,2,3,2,0,5);
-		stroke('#fff');
-		line(5,6,25,0);
-		line(5,6,25,10);
-		line(-5,6,-25,0);
-		line(-5,6,-25,10);
-		//tail
-		stroke('#5e5851');
-		strokeWeight(6);
-		line(20,90,40,30);
-		line(40,30,35,20);
-		line(35,20,40,15);
-		line(40,15,42,0);
-	pop();
-}
-
-function butterfly()
-{
-	push();
-	translate(butterflyX,butterflyY);
-		scale(butterflyScale);
-		noStroke();
-		fill('#B877B9')
-		  ellipse(-7,-5,18,10);
-	      ellipse(-4,2,15,8);
-	      ellipse(7,-5,20,10);
-	      ellipse(4,2,15,8);
-	      fill(0);
-	      ellipse(0,-2,4,17);
-	      stroke(0);
-	      strokeWeight(.5);
-	      line(0,-10,5,-15);
-	      line(0,-10,-5,-15);
-     pop();
-}
-
-function money()
-{
-	push();
-     translate(moneyX,moneyY);
-     scale(moneyScale);
-	     fill('#81B2A4');
-	     noStroke();
-	     rect(0,0,30,50);
-	     fill('#99D4C2');
-	     ellipse(15,25,25);
-	     fill(0);
-	     textSize(20);
-	     textAlign(CENTER);
-	     text('$',15,32);
-	     translate(40,0);
-	     rotate(180/4.5);
-	     fill('#81B2A4');
-	     noStroke();
-	     rect(0,0,30,50);
-	     fill('#99D4C2');
-	     ellipse(15,25,25);
-	     fill(0);
-	     textSize(20);
-	     textAlign(CENTER);
-	     text('$',15,32);
-     pop();
-}
-
-function purse()
-{
-	push();
-     translate(purseX,purseY);
-     scale(purseScale);
-     	fill('#EFC238');
-     	noStroke();
-     	quad(-30,0,30,0,40,40,-40,40);
-     	noFill();
-     	stroke('#EFC238');
-     	strokeWeight(9);
-     	arc(0,0,30,40,PI,0);
-     	noStroke();
-     	fill('#C680C7');
-     	ellipse(-29,15,20);
-     	fill('#B877B9');
-     	ellipse(-20,8,20);
-
-     pop();
- }
-
-
-function mug()
-{
-	noStroke();
-	push();
-		translate(mugX, mugY);
-		scale(mugScale);
-		noFill();
-		stroke('#F79F9C'); //Dark Pink
-		strokeWeight(4);
-		push(); //Handle
-			translate(601.5, 374);
-			rotate(-315);
-			ellipse(0, 0, 19.5, 34);
 		pop();
+	 }
+
+	function cat() {
+		push();
+			translate(catX,catY);
+			scale(catScale);
+		//Body & Ears
+			fill('#5e5851');
+			noStroke();
+			ellipse(0,0,50);
+			triangle(-30,-35,-25,0,0,-10)
+			triangle(0,-10,25,0,30,-35);
+			triangle(0,-25,-40,100,40,100);
+		//Eyes
+			fill('#ddbc75');
+			stroke(0);
+			ellipse(-10,-5,8);
+			ellipse(10,-5,8);
+			line(-10,-6,-10,-4);
+			line(10,-6,10,-4);
+		//Nose
+			fill('#e2bcae');
+			noStroke();
+			triangle(-3,2,3,2,0,5);
+			stroke('#fff');
+			line(5,6,25,0);
+			line(5,6,25,10);
+			line(-5,6,-25,0);
+			line(-5,6,-25,10);
+		//Tail
+			stroke('#5e5851');
+			strokeWeight(6);
+			line(20,90,40,30);
+			line(40,30,35,20);
+			line(35,20,40,15);
+			line(40,15,42,0);
+		pop();
+	 }
+
+	function butterfly() {
+		push();
+			translate(butterflyX,butterflyY);
+			scale(butterflyScale);
+			noStroke();
+			fill('#B877B9')
+			ellipse(-7,-5,18,10);
+	     	ellipse(-4,2,15,8);
+	     	ellipse(7,-5,20,10);
+	      	ellipse(4,2,15,8);
+	      	fill(0);
+	      	ellipse(0,-2,4,17);
+	      	stroke(0);
+	      	strokeWeight(.5);
+	      	line(0,-10,5,-15);
+	      	line(0,-10,-5,-15);
+     	pop();
+	 }
+
+	function money() {
+	 	push();
+     		translate(moneyX,moneyY);
+     		scale(moneyScale);
+	     	fill('#81B2A4');
+	     	noStroke();
+	     	rect(0,0,30,50);
+	     	fill('#99D4C2');
+	     	ellipse(15,25,25);
+	     	fill(0);
+	     	textSize(20);
+	     	textAlign(CENTER);
+	     	text('$',15,32);
+	     	translate(40,0);
+	     	rotate(180/4.5);
+	     	fill('#81B2A4');
+	     	noStroke();
+	     	rect(0,0,30,50);
+	     	fill('#99D4C2');
+	     	ellipse(15,25,25);
+	     	fill(0);
+	     	textSize(20);
+		    textAlign(CENTER);
+	     	text('$',15,32);
+     	pop();
+	 }
+
+	function purse() {
+		push();
+     		translate(purseX,purseY);
+     		scale(purseScale);
+     		fill('#EFC238');
+     		noStroke();
+     		quad(-30,0,30,0,40,40,-40,40);
+     		noFill();
+     		stroke('#EFC238');
+     		strokeWeight(9);
+     		arc(0,0,30,40,PI,0);
+     		noStroke();
+     		fill('#C680C7');
+     		ellipse(-29,15,20);
+     		fill('#B877B9');
+     		ellipse(-20,8,20);
+     	pop();
+ 	 }
+
+	function mug() {
 		noStroke();
-		fill('#F9B8B5');
-		rect(555.5, 356.6, 52, 31); //Mug Body
-		ellipse(581.51, 382.82, 52.54, 37.82); //Mug Base
-		fill('#F79F9C') //Dark Pink
-		ellipse(581, 357, 47, 30.5); //Inside of Mug
-		fill('#7A5D46') //Brown
-		ellipse(582, 364, 41.5, 19); //Coffee
-		noFill();
-		stroke('#D1D3D4') //Blue-grey
-		strokeWeight(4);
-		ellipse(581.5, 357, 49.2, 33.6); //Rim
-}
+	 	push();
+			translate(mugX, mugY);
+			scale(mugScale);
+			noFill();
+			stroke('#F79F9C'); //Dark Pink
+			strokeWeight(4);
+			push(); //Handle
+				translate(601.5, 374);
+				rotate(-315);
+				ellipse(0, 0, 19.5, 34);
+			pop();
+			noStroke();
+			fill('#F9B8B5');
+			rect(555.5, 356.6, 52, 31); //Mug Body
+			ellipse(581.51, 382.82, 52.54, 37.82); //Mug Base
+			fill('#F79F9C') //Dark Pink
+			ellipse(581, 357, 47, 30.5); //Inside of Mug
+			fill('#7A5D46') //Brown
+			ellipse(582, 364, 41.5, 19); //Coffee
+			noFill();
+			stroke('#D1D3D4') //Blue-grey
+			strokeWeight(4);
+			ellipse(581.5, 357, 49.2, 33.6); //Rim
+	 }
 
 //SCREEN 1 (title screen)
 function screen1() //diamonds, stars, button, and text
@@ -722,6 +726,8 @@ function screen2() //dog, hats, accessories
 
 	dog();
 
+	drawRight();
+
 //Hat
 
 	cowboyHat();
@@ -751,7 +757,6 @@ function screen2() //dog, hats, accessories
 }
 
 
-
 function draw()
 {
 	//screen2();
@@ -760,12 +765,18 @@ function draw()
 		backredraw();
 		background(backcolor);
 		screen2();
+   		if (press) 
+   		{
+      		moveArm();
+   		}
 		okay = true
 	}
+
 }
 
 function mouseClicked()
 {
+//VARIABLES
 	var cowboybox = (mouseX<150 && mouseX>50 && mouseY<130 && mouseY>50);
 	var baseballbox = (mouseX<250 && mouseX>180 && mouseY<140 && mouseY>50);
 	var fedorabox = (mouseX<150 && mouseX>50 && mouseY<300 && mouseY>250);
@@ -778,18 +789,21 @@ function mouseClicked()
 	var moneybox = (mouseX<450 && mouseX>400 && mouseY<290 && mouseY>200);
 	var pursebox = (mouseX<350 && mouseX>300 && mouseY>400 && mouseY<450);
 	var mugbox = (mouseX<450 && mouseX>400 && mouseY>400 && mouseY<450);
+	var colchange = (mouseX>540 && mouseX<859 && mouseY>148 && mouseY<488)
 
-	var allaccess = (knifebox || catbox || butterflybox || moneybox || pursebox || mugbox);
+	var allaccess = (knifebox || catbox || butterflybox || moneybox || pursebox || mugbox || colchange);
 
-	var allhats = (cowboybox || baseballbox || fedorabox || tophatbox || beretbox || partyhatbox);
+	var allhats = (cowboybox || baseballbox || fedorabox || tophatbox || beretbox || partyhatbox || colchange);
 
+//Screen Change Button
 	if (mouseX > 258 && mouseX < 651 && mouseY > 282 && mouseY < 427){
 		click = true
 	}
+
 if (okay){
 //Cowboy Hat
 	if (mouseX<150 && mouseX>50 && mouseY<130 && mouseY>50)
-	{
+	{	
 		CowboyHatx=638;
 		CowboyHaty=90;
 		CowboyHatScale=2;
@@ -799,7 +813,10 @@ if (okay){
 
 	}
 	else{
-		cancelcowboyhat();
+		background(backcolor);
+		CowboyHatx=75;
+		CowboyHaty=85;
+		CowboyHatScale=.6;
 	}
 
 
@@ -872,7 +889,7 @@ if (okay){
 		background(backcolor);
 		beretX = 93;
 		beretY = 438;
-		beretScale = .6;
+		beretScale = .6;		
 	}
 
 //Party Hat
@@ -908,7 +925,7 @@ if (okay){
 		background(backcolor);
 		knifeX = 330;
 		knifeY = 105;
-		knifeScale = .18;
+		knifeScale = .18;		
 	}
 
 //Cat
@@ -1002,19 +1019,47 @@ if (okay){
 	}
 
 // Dog color
-	if (mouseX>540 && mouseX<859 && mouseY>148 && mouseY<488)
-	{
+	if (mouseX>540 && mouseX<859 && mouseY>148 && mouseY<488) {
 		if (i < numColors){
 			i++;
 		}
-
-		else{
+		else {
 			i = 0;
 		}
 	}
 
 }
 
+
+}
+function mousePressed() 
+   {
+
+      if (mouseX > 700 && mouseX < 800 && mouseY > 280 && mouseY < 410)
+      {
+		press = true
+	}
+   }
+
+   function moveArm()
+   {
+ 
+      if (armR < -45) 
+      {
+         armDown = false;
+      } 
+      if (armR > 20) 
+      {
+         armDown = true;
+      }
+      if (armDown == true) 
+      {
+         armR -= 3;
+      } 
+      else 
+      {
+         armR += 3;
+      }
 }
 
 
@@ -1031,14 +1076,8 @@ function backredraw()
 
 	noStroke();
 	fill(darkpink); //Redraw Shadow
-	rect(258, 282, 383, 135, 35);
+	rect(258, 282, 383, 135, 35); 
 	fill(pink); //Redraw Button
 	rect(rectx, recty, 383, 135, 35);
 }
 
-function cancelcowboyhat(){
-	background(backcolor);
-	CowboyHatx=75;
-	CowboyHaty=85;
-	CowboyHatScale=.6;
-}
